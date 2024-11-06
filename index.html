@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIIT University Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --background-start: #1e293b;
-            --background-end: #0f172a;
-            --text-light: #f8fafc;
-            --text-dark: #334155;
-            --error-color: #ef4444;
+            --primary-color: #7F3DFF;
+            --secondary-color: #5C2DB8;
+            --accent-color: #B07DEF;
+            --background-start: #100E17;
+            --background-end: #1F1B2C;
+            --text-light: #F4F4F5;
+            --text-dark: #18181B;
+            --error-color: #EF4444;
+            --form-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -28,12 +32,13 @@
             display: flex;
             flex-direction: column;
             background: linear-gradient(135deg, var(--background-start), var(--background-end));
+            color: var(--text-light);
         }
 
         .navbar {
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 1rem;
+            padding: 1.5rem;
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -42,9 +47,9 @@
 
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -52,8 +57,8 @@
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
             transition: all 0.3s;
             font-weight: 500;
         }
@@ -65,25 +70,25 @@
 
         .login-container {
             margin: auto;
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 3rem;
+            background: var(--form-bg);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
             width: 90%;
-            max-width: 450px;
-            margin-top: 6rem;
+            max-width: 500px;
+            margin-top: 8rem;
             backdrop-filter: blur(10px);
         }
 
         .login-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .login-header h1 {
             color: var(--text-dark);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
         }
 
         .university-logo {
@@ -91,19 +96,20 @@
             height: 120px;
             background-color: var(--primary-color);
             border-radius: 50%;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
+            color: var(--text-light);
+            font-size: 2.4rem;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .login-form {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 1.4rem;
         }
 
         .form-group {
@@ -112,40 +118,42 @@
 
         .form-group input {
             width: 100%;
-            padding: 1rem;
-            padding-left: 3rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 1.2rem;
+            padding-left: 3.5rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 10px;
             font-size: 1rem;
             transition: all 0.3s;
-            background-color: #f8fafc;
+            background-color: #F4F4F5;
+            color: var(--text-dark);
         }
 
         .form-group input:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 0 0 3px rgba(127, 61, 255, 0.2);
         }
 
         .form-group i {
             position: absolute;
-            left: 1rem;
+            left: 1.2rem;
             top: 50%;
             transform: translateY(-50%);
-            color: #94a3b8;
+            color: #9CA3AF;
+            font-size: 1.2rem;
         }
 
         .submit-btn {
             background-color: var(--primary-color);
-            color: white;
-            padding: 1rem;
+            color: var(--text-light);
+            padding: 1.2rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             transition: all 0.3s;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
 
         .submit-btn:hover {
@@ -157,14 +165,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1rem;
-            font-size: 0.9rem;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
         }
 
         .remember-me {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            color: var(--text-dark);
         }
 
         .forgot-password {
@@ -178,15 +187,15 @@
         }
 
         .social-login {
-            margin-top: 2rem;
+            margin-top: 2.2rem;
             text-align: center;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1.5rem;
+            border-top: 1px solid #D1D5DB;
+            padding-top: 1.7rem;
         }
 
         .social-login p {
             color: var(--text-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .social-buttons {
@@ -196,24 +205,26 @@
         }
 
         .social-btn {
-            padding: 0.8rem 1.5rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
+            padding: 0.9rem 1.7rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 10px;
             background-color: white;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         .social-btn:hover {
-            background-color: #f8fafc;
+            background-color: #F4F4F5;
             transform: translateY(-2px);
         }
 
         .guest-login {
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             text-align: center;
             color: var(--text-dark);
         }
@@ -226,18 +237,18 @@
 
         @media (max-width: 600px) {
             .login-container {
-                margin-top: 8rem;
-                padding: 1.5rem;
+                margin-top: 10rem;
+                padding: 2rem;
             }
 
             .nav-links {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
             }
 
             .nav-links a {
                 width: 100%;
-                text-align: center;
+                text-align: left;
             }
 
             .social-buttons {
@@ -261,7 +272,7 @@
                 NU
             </div>
             <h1>Welcome Back</h1>
-            <p style="color: #64748b;">Please enter your credentials to access your account</p>
+            <p style="color: #6B7280;">Please enter your credentials to access your account</p>
         </div>
 
         <form class="login-form" action="main.html" method="get">

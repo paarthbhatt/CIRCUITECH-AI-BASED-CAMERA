@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Based Camera</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            background-image: linear-gradient(to right, #4776E6, #8E54E9);
+            font-family: Arial, sans-serif;
+            background-image: url(wall.jpg);
+            background-size: cover;
+            background-position: center;
             margin: 0;
             color: #333;
         }
         .navbar {
             width: 100%;
-            background-color: transparent;
+            background-color: #333;
             overflow: hidden;
             position: fixed;
             top: 0;
             z-index: 1000;
-            padding: 20px 0;
         }
         .navbar a {
             float: left;
@@ -30,58 +28,50 @@
             text-align: center;
             padding: 14px 20px;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
         }
         .navbar a:hover {
-            color: #FFD700;
+            background-color: #ddd;
+            color: black;
         }
         .container {
             padding: 20px;
-            margin-top: 100px; /* Adjust for navbar height */
+            margin-top: 60px;
             text-align: center;
         }
         .info-section {
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
         .info-section img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         .info-section h2 {
             margin-top: 0;
-            color: #4776E6;
-            font-weight: 700;
-            font-size: 32px;
-        }
-        .info-section p {
-            font-size: 16px;
-            line-height: 1.6;
         }
         .button {
-            background-color: #8E54E9;
+            background-color: #4CAF50;
             color: white;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            font-weight: 500;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            margin: 0 5px;
         }
         .button:hover {
-            background-color: #5E35B1;
+            background-color: #45a049;
+        }
+        .button.stop {
+            background-color: #f44336;
+        }
+        .button.stop:hover {
+            background-color: #da190b;
         }
     </style>
 </head>
@@ -94,15 +84,16 @@
     <div class="container">
         <div class="info-section">
             <h2>AI-Based Camera</h2>
-            <img src="camera-ai.jpg" alt="AI Camera"> <!-- Add your external image here -->
+            <img src="camera-ai.jpg" alt="AI Camera">
             <p>
                 Our AI-based camera project leverages advanced machine learning algorithms to provide real-time object detection and recognition. This technology is designed to enhance security, improve automation, and offer valuable insights across various industries. By integrating an AI model with a live camera feed, the system can identify and track objects, making it ideal for applications such as surveillance, automated inspections, and data collection. The project includes a user-friendly web interface where users can activate the camera, view the live feed, and access detailed information through a downloadable PDF document.
             </p>
-            <a href="circuitech.pdf" class="button" target="_blank">Read More (PDF)</a> <!-- Add your PDF document here -->
+            <a href="circuitech.pdf" class="button" target="_blank">Read More (PDF)</a>
         </div>
         <div class="info-section">
             <h2>Activate Camera</h2>
             <button class="button" onclick="startCameraFeed()">Start Camera</button>
+            <button class="button stop" onclick="stopCameraFeed()">De-activate Camera</button>
             <div id="camera-feed">
                 <br>
                 <video id="video" width="640" height="480" autoplay></video>
@@ -112,12 +103,15 @@
     </div>
     
     <script>
+        let stream = null;
+
         function startCameraFeed() {
             const video = document.getElementById('video');
 
             if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(stream => {
+                    .then(videoStream => {
+                        stream = videoStream;
                         video.srcObject = stream;
                         video.play();
                     })
@@ -126,6 +120,17 @@
                     });
             } else {
                 console.error('getUserMedia not supported on your browser!');
+            }
+        }
+
+        function stopCameraFeed() {
+            const video = document.getElementById('video');
+            
+            if (stream) {
+                // Stop all tracks in the stream
+                stream.getTracks().forEach(track => track.stop());
+                video.srcObject = null;
+                stream = null;
             }
         }
     </script>
