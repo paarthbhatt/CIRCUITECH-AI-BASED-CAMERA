@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based Camera</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(wall.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            color: #333;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+            margin-top: 60px; /* Adjust for navbar height */
+            text-align: center;
+        }
+        .info-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .info-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .info-section h2 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <div class="info-section">
+            <h2>AI-Based Camera</h2>
+            <img src="camera-ai.jpg" alt="AI Camera"> <!-- Add your external image here -->
+            <p>
+                Our AI-based camera project leverages advanced machine learning algorithms to provide real-time object detection and recognition. This technology is designed to enhance security, improve automation, and offer valuable insights across various industries. By integrating an AI model with a live camera feed, the system can identify and track objects, making it ideal for applications such as surveillance, automated inspections, and data collection. The project includes a user-friendly web interface where users can activate the camera, view the live feed, and access detailed information through a downloadable PDF document.
+            </p>
+            <a href="circuitech.pdf" class="button" target="_blank">Read More (PDF)</a> <!-- Add your PDF document here -->
+        </div>
+        <div class="info-section">
+            <h2>Activate Camera</h2>
+            <button class="button" onclick="startCameraFeed()">Start Camera</button>
+            <div id="camera-feed">
+                <br>
+                <video id="video" width="640" height="480" autoplay></video>
+            </div>
+            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2699341/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function startCameraFeed() {
+            const video = document.getElementById('video');
+
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(stream => {
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(error => {
+                        console.error('Error accessing webcam:', error);
+                    });
+            } else {
+                console.error('getUserMedia not supported on your browser!');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Based Camera</title>
+    <title>NU Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url(wall.jpg);
+            background-image: url('wallpaper.jpg'); /* Add your background image here */
             background-size: cover;
             background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            color: #333;
         }
         .navbar {
             width: 100%;
-            background-color: #333;
+            background-color: #000000;
             overflow: hidden;
             position: fixed;
             top: 0;
-            z-index: 1000;
         }
         .navbar a {
             float: left;
@@ -33,38 +36,37 @@
             background-color: #ddd;
             color: black;
         }
-        .container {
-            padding: 20px;
-            margin-top: 60px; /* Adjust for navbar height */
-            text-align: center;
-        }
-        .info-section {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+        .login-container {
+            background-color: rgba(230, 168, 168, 0.9);
+            padding: 50px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            margin-top: 60px; /* Adjust for navbar height */
+        }
+        .login-container h2 {
             margin-bottom: 20px;
         }
-        .info-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000000;
+            border-radius: 4px;
         }
-        .info-section h2 {
-            margin-top: 0;
-        }
-        .button {
+        .login-container input[type="submit"] {
             background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+            color: rgb(0, 0, 0);
+            padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            width: 80%;
         }
-        .button:hover {
-            background-color: #45a049;
+        .login-container input[type="submit"]:hover {
+            background-color: #4ed154;
         }
     </style>
 </head>
@@ -73,44 +75,18 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#academics">Academics</a>
+        <a href="#sports">Sports</a>
+        <a href="#placements">Placements</a>
     </div>
-    <div class="container">
-        <div class="info-section">
-            <h2>AI-Based Camera</h2>
-            <img src="camera-ai.jpg" alt="AI Camera"> <!-- Add your external image here -->
-            <p>
-                Our AI-based camera project leverages advanced machine learning algorithms to provide real-time object detection and recognition. This technology is designed to enhance security, improve automation, and offer valuable insights across various industries. By integrating an AI model with a live camera feed, the system can identify and track objects, making it ideal for applications such as surveillance, automated inspections, and data collection. The project includes a user-friendly web interface where users can activate the camera, view the live feed, and access detailed information through a downloadable PDF document.
-            </p>
-            <a href="circuitech.pdf" class="button" target="_blank">Read More (PDF)</a> <!-- Add your PDF document here -->
-        </div>
-        <div class="info-section">
-            <h2>Activate Camera</h2>
-            <button class="button" onclick="startCameraFeed()">Start Camera</button>
-            <div id="camera-feed">
-                <br>
-                <video id="video" width="640" height="480" autoplay></video>
-            </div>
-            <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/2699341/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
-        </div>
+    <div class="login-container">
+        <h1>NIIT University Login:</h1>
+        <form action="main.html" method="get">
+            <input type="text" name="username" placeholder="Username: " required>
+            <input type="password" name="password" placeholder="Password: " required>
+            <input type="submit" value="Login">
+        </form>
     </div>
-    
-    <script>
-        function startCameraFeed() {
-            const video = document.getElementById('video');
-
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(stream => {
-                        video.srcObject = stream;
-                        video.play();
-                    })
-                    .catch(error => {
-                        console.error('Error accessing webcam:', error);
-                    });
-            } else {
-                console.error('getUserMedia not supported on your browser!');
-            }
-        }
-    </script>
 </body>
 </html>
