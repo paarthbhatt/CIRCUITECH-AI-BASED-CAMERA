@@ -12,8 +12,9 @@
             --primary-color: #7F3DFF;
             --secondary-color: #5C2DB8;
             --accent-color: #B07DEF;
-            --background-start: #100E17;
-            --background-end: #1F1B2C;
+            --background-start: #3A1C71;
+            --background-middle: #D76D77;
+            --background-end: #FFAF7B;
             --text-light: #F4F4F5;
             --text-dark: #18181B;
             --error-color: #EF4444;
@@ -31,34 +32,33 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, var(--background-start), var(--background-end));
+            background: linear-gradient(135deg, var(--background-start), var(--background-middle), var(--background-end));
             color: var(--text-light);
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            padding: 1.5rem;
+            padding: 1.2rem 2rem;
             position: fixed;
             width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-links {
             display: flex;
             gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-right: auto;
         }
 
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            padding: 0.75rem 1.25rem;
-            border-radius: 6px;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
             transition: all 0.3s;
             font-weight: 500;
         }
@@ -72,11 +72,11 @@
             margin: auto;
             padding: 3rem;
             background: var(--form-bg);
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
             width: 90%;
             max-width: 500px;
-            margin-top: 8rem;
+            margin-top: 10rem;
             backdrop-filter: blur(10px);
         }
 
@@ -256,12 +256,40 @@
             }
         }
     </style>
+    <script>
+        // JavaScript function to validate username and password
+        function validateCredentials() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const signInButton = document.getElementById("signInButton");
+
+            // Define the correct username and password
+            const correctUsername = "user123";
+            const correctPassword = "password123";
+
+            // Enable button if both fields match the correct credentials, disable otherwise
+            if (username === correctUsername && password === correctPassword) {
+                signInButton.disabled = false;
+                signInButton.style.backgroundColor = "var(--primary-color)";
+                signInButton.style.cursor = "pointer";
+            } else {
+                signInButton.disabled = true;
+                signInButton.style.backgroundColor = "gray";
+                signInButton.style.cursor = "not-allowed";
+            }
+        }
+
+        // Function to initialize the button state on page load
+        window.onload = function() {
+            document.getElementById("signInButton").disabled = true;
+        };
+    </script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
+            <a href="#about">About Us</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -312,5 +340,10 @@
             </div>
         </form>
     </main>
+    
+
+    <br>
+    <br>
+
 </body>
 </html>
