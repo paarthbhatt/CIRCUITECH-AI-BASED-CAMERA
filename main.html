@@ -103,6 +103,18 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-content h1 {
@@ -128,7 +140,13 @@
             width: 100%;
             height: auto;
             border-radius: 15px;
+            filter: brightness(0.9);
             transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            filter: brightness(1);
+            transform: scale(1.02);
         }
 
         .camera-section {
@@ -161,21 +179,25 @@
         .button-primary {
             background: var(--primary-color);
             color: white;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         .button-primary:hover {
             background: var(--secondary-color);
             transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         }
 
         .button-danger {
             background: #ef4444;
             color: white;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
         .button-danger:hover {
             background: #dc2626;
             transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         }
 
         .camera-feed {
@@ -192,6 +214,10 @@
         }
 
         .metrics-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
             background: white;
             border-radius: 20px;
             padding: 2rem;
@@ -202,6 +228,14 @@
             text-align: center;
             margin-bottom: 1.5rem;
             color: var(--text-color);
+        }
+        .metrics-section iframe {
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .metrics-section iframe:hover {
+            transform: translateY(-5px);
         }
 
         .feature-grid {
@@ -216,17 +250,33 @@
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .feature-icon {
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
         }
 
         @media (max-width: 768px) {
@@ -239,6 +289,7 @@
                 display: none;
             }
         }
+        
     </style>
 </head>
 <body>
