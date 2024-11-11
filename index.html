@@ -235,6 +235,45 @@
             text-decoration: none;
             font-weight: 500;
         }
+        
+        .login-container {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        .forgot-password:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .social-btn:hover {
+            background-color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .guest-login a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
 
         @media (max-width: 600px) {
             .login-container {
