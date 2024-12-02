@@ -467,6 +467,7 @@
                 stream = null;
             }
         }
+
         async function captureAndAnalyze() {
             const video = document.getElementById("video");
             const canvas = document.getElementById("canvas");
@@ -478,7 +479,7 @@
 
             canvas.toBlob(async (blob) => {
                 const formData = new FormData();
-                formData.append("image", blob);
+                formData.append("image", blob, "captured.jpg");
 
                 try {
                     const response = await fetch("api.php", {
@@ -503,8 +504,7 @@
                 } catch (error) {
                     console.error("Error:", error);
                 }
-            },
-                "image/jpeg");
+            }, "image/jpeg");
         }
 
         function getTagsToShow() {
@@ -524,7 +524,7 @@
 
             topTags.forEach((tag) => {
                 const listItem = document.createElement("li");
-                const confidencePercentage = Math.round(tag.confidence);
+                const confidencePercentage = Math.round(tag.confidence * 100);
                 const barColor = getBarColor(confidencePercentage);
 
                 listItem.innerHTML = `
@@ -547,9 +547,7 @@
             } else {
                 return "red";
             }
-        }
-
-
+        }   
     </script>
 </body>
 </html>
