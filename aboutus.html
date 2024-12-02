@@ -1,85 +1,258 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>AI Camera System - About Us</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #1E90FF;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      background-color: #f2f2f2;
-      padding: 10px;
-    }
-    nav a {
-      color: #333;
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-    }
-    nav a:hover {
-      background-color: #ddd;
-    }
-    nav a.active {
-      font-weight: bold;
-      color: #1E90FF;
-    }
-    main {
-      padding: 20px;
-    }
-    footer {
-      background-color: #1E90FF;
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Camera System - About Us</title>
+    <style>
+        :root {
+            --primary-color: #1A4B84;
+            --secondary-color: #2C7BB6;
+            --accent-color: #4DACF5;
+            --background-color: #F5F9FC;
+            --text-primary: #2C3E50;
+            --text-secondary: #34495E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-member {
+            background-color: var(--background-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-member h2 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            border: none;
+        }
+
+        .team-member h3 {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        /* Expertise List */
+        .expertise-list ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            list-style-type: none;
+        }
+
+        .expertise-list ul li {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>AI Camera System</h1>
-  </header>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#" class="active">About Us</a>
-    <a href="#">Contact</a>
-  </nav>
-  <main>
-    <h2>About Our Company</h2>
-    <p>At AI Camera System, we are dedicated to providing the latest advancements in surveillance and security technology.</p>
-    <h2>Our Mission</h2>
-    <p>Our mission is to enhance safety and efficiency through the power of artificial intelligence.</p>
-    <h2>Our Expertise</h2>
-    <ul>
-      <li>Real-time object detection</li>
-      <li>Facial recognition</li>
-      <li>Intelligent analytics for enhanced security and automation</li>
-    </ul>
-    <h2>Our Team</h2>
-    <div>
-      <h3>John Doe, CEO</h3>
-      <p>John is the visionary founder of AI Camera System, with over 15 years of experience in computer vision and AI.</p>
-    </div>
-    <div>
-      <h3>Jane Smith, CTO</h3>
-      <p>Jane leads the engineering team, driving the development of our cutting-edge camera system.</p>
-    </div>
-    <div>
-      <h3>Bob Johnson, VP of Sales</h3>
-      <p>Bob is responsible for expanding our customer base and ensuring client satisfaction.</p>
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2023 AI Camera System. All rights reserved.</p>
-  </footer>
+    <header>
+        <div class="container">
+            <h1>AI Camera System</h1>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="#" class="active">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section>
+            <h2>About Our Company</h2>
+            <p>At AI Camera System, we are dedicated to providing cutting-edge surveillance and security technology through innovative AI solutions.</p>
+        </section>
+
+        <section>
+            <h2>Our Mission</h2>
+            <p>We aim to revolutionize safety and efficiency by leveraging the transformative power of artificial intelligence in surveillance and security systems.</p>
+        </section>
+
+        <section class="expertise-list">
+            <h2>Our Expertise</h2>
+            <ul>
+                <li>Real-time Object Detection</li>
+                <li>Facial Recognition</li>
+                <li>Intelligent Analytics</li>
+                <li>Enhanced Security</li>
+                <li>Automation Solutions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h2>Mrinal Upreti</h2>
+                    <h3>Project Lead</h3>
+                    <p>Strategically manages project integration and ensures cohesive collaboration.</p>
+                </div>
+                <div class="team-member">
+                    <h2>Gourav</h2>
+                    <h3>Researcher</h3>
+                    <p>Drives innovation through advanced AI research and development.</p>
+                </div>
+                <div class="team-member">
+                    <h2>Parth Bhatt</h2>
+                    <h3>Hardware Designer</h3>
+                    <p>Designs state-of-the-art hardware for advanced AI camera systems.</p>
+                </div>
+                <div class="team-member">
+                    <h2>Garv</h2>
+                    <h3>Prototype Developer</h3>
+                    <p>Transforms innovative concepts into functional prototype solutions.</p>
+                </div>
+                <div class="team-member">
+                    <h2>Rudra Pratap</h2>
+                    <h3>Code Developer</h3>
+                    <p>Architects robust software solutions powering our AI technologies.</p>
+                </div>
+                <div class="team-member">
+                    <h2>Kunga Tsepak</h2>
+                    <h3>Prototype Tester</h3>
+                    <p>Ensures rigorous quality control through comprehensive prototype testing.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AI Camera System. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
