@@ -30,10 +30,10 @@ This repository contains the source code for an AI-based camera website, develop
 ## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript (with modern frameworks for interactivity).
-- **Backend**: Node.js, Express.js.
+- **Backend**: Using Vercel
 - **AI Integration**: Google Cloud Vision API.
-- **Database**: MongoDB (for storing analysis data).
-- **Deployment**: Docker, AWS.
+- **Authentication**: Firebase
+- **Deployment**: Vercel
 
 ## Installation
 
