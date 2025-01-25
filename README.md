@@ -40,7 +40,7 @@ This repository contains the source code for an AI-based camera website, develop
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/ai-camera-website.git
+   git clone https://github.com/your-username/circuitech-ai-based-camera.git
    ```
 
 2. Navigate to the project directory:
