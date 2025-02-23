@@ -1,6 +1,6 @@
 # AI-Based Camera Website
 
-This repository contains the source code for an AI-based camera website, developed as part of the **CircuitTech Project** at **NIIT University**. The project leverages advanced AI technologies to deliver real-time camera analysis, enhanced security features, and an interactive dashboard for live data visualization and insights.
+This repository contains the source code for an AI-based camera website, developed as part of the **CircuitTech Project** at **NIIT University**. The project leverages advanced AI technologies to deliver real-time object detection and enhanced security features.
 
 ## Table of Contents
 
@@ -39,36 +39,36 @@ This repository contains the source code for an AI-based camera website, develop
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/circuitech-ai-based-camera.git
-   ```
+    ```bash
+    git clone https://github.com/your-username/circuitech-ai-based-camera.git
+    ```
 
 2. Navigate to the project directory:
 
-   ```bash
-   cd ai-camera-website
-   ```
+    ```bash
+    cd ai-camera-website
+    ```
 
 3. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 4. Set up environment variables:
 
-   Create a `.env` file in the root directory with the following details:
+    Create a `.env` file in the root directory with the following details:
 
-   ```
-   CLOUD_VISION_API_KEY=your-google-cloud-api-key
-   MONGO_URI=your-mongodb-connection-string
-   ```
+    ```
+    CLOUD_VISION_API_KEY=your-google-cloud-api-key
+    MONGO_URI=your-mongodb-connection-string
+    ```
 
 5. Start the development server:
 
-   ```bash
-   npm start
-   ```
+    ```bash
+    npm start
+    ```
 
 6. Open your browser and visit `http://localhost:3000`.
 
@@ -118,21 +118,21 @@ Contributions are welcome! Follow these steps to contribute:
 1. Fork the repository.
 2. Create a new branch:
 
-   ```bash
-   git checkout -b feature-name
-   ```
+    ```bash
+    git checkout -b feature-name
+    ```
 
 3. Commit your changes:
 
-   ```bash
-   git commit -m "Description of changes"
-   ```
+    ```bash
+    git commit -m "Description of changes"
+    ```
 
 4. Push to the branch:
 
-   ```bash
-   git push origin feature-name
-   ```
+    ```bash
+    git push origin feature-name
+    ```
 
 5. Submit a pull request.
 
